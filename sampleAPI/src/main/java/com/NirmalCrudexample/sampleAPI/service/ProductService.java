@@ -20,7 +20,9 @@ public class ProductService {
         return repository.save(product);
     }
         public List<Product> saveProducts(List<Product> products) {
-            return repository.saveAll(products);}
+            String a="test";
+            return repository.saveAll(products);
+      }
 
             public List<Product> getProducts () {
                 return repository.findAll();
@@ -34,8 +36,7 @@ public class ProductService {
 
     public String deleteProduct(int id) {
         repository.deleteById(id);
-        return "product removed !!"+id;
-    }
+        return "product removed !!"+id;   }
 
     public Product updateProduct(Product product) {
         Product existingproduct = repository.findById(product.getId()).orElse(null);
