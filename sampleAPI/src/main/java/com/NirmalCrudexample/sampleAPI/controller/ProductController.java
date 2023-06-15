@@ -16,13 +16,14 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    Logger logger= LoggerFactory.getLogger(ProductController.class);
+    Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product product){
+    public Product addProduct(@RequestBody Product product) {
         return service.SaveProduct(product);
     }
+
     @PostMapping("/addProducts")
     public List<Product> addProducts(@RequestBody List<Product> products) {
 
@@ -54,6 +55,4 @@ public class ProductController {
     public String deleteProduct(@PathVariable int id) {
         return service.deleteProduct(id);
     }
-
-String a;
 }
