@@ -2,6 +2,9 @@ package com.NirmalCrudexample.sampleAPI.controller;
 
 import com.NirmalCrudexample.sampleAPI.entity.Product;
 import com.NirmalCrudexample.sampleAPI.service.ProductService;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +16,17 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
+    Logger logger= LoggerFactory.getLogger(ProductController.class);
+
+
     @PostMapping("/addProduct")
     public Product addProduct(@RequestBody Product product){
         return service.SaveProduct(product);
     }
     @PostMapping("/addProducts")
     public List<Product> addProducts(@RequestBody List<Product> products) {
+
+        logger.info("lOGGER DISPLAYED");
         return service.saveProducts(products);
     }
 
